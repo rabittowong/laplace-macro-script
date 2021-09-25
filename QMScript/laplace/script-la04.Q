@@ -2,8 +2,8 @@
 SyntaxVersion=2
 BeginHotkey=100
 BeginHotkeyMod=2
-PauseHotkey=0
-PauseHotkeyMod=0
+PauseHotkey=100
+PauseHotkeyMod=2
 StopHotkey=96
 StopHotkeyMod=2
 RunOnce=1
@@ -27,9 +27,8 @@ SetupOCXFile=
 ================================
 風之國度 自動攻城程序
 
-版本: r1.0
+版本: 1.0
 作者: Rabitto
-最後修改時間: 2021/01/10 19:12
 ================================
 */
 

@@ -2,13 +2,13 @@
 SyntaxVersion=2
 BeginHotkey=102
 BeginHotkeyMod=2
-PauseHotkey=0
-PauseHotkeyMod=0
+PauseHotkey=102
+PauseHotkeyMod=2
 StopHotkey=96
 StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
-MacroID=7bb02136-9ed0-4f6a-bd04-5fa7525a3747
+MacroID=09a5d4f8-1cdb-428e-bb96-440eec8456f2
 Description=自動升星
 Enable=1
 AutoRun=0
@@ -27,9 +27,8 @@ SetupOCXFile=
 ================================
 風之國度 自動升星程序
 
-版本: r1.0
+版本: 1.0
 作者: Rabitto
-最後修改時間: 2021/01/28 22:34
 ================================
 */
 

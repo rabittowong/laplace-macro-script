@@ -2,8 +2,8 @@
 SyntaxVersion=2
 BeginHotkey=97
 BeginHotkeyMod=2
-PauseHotkey=0
-PauseHotkeyMod=0
+PauseHotkey=97
+PauseHotkeyMod=2
 StopHotkey=96
 StopHotkeyMod=2
 RunOnce=1
@@ -27,9 +27,8 @@ SetupOCXFile=
 ================================
 風之國度 自動一條程序
 
-版本: r1.0
+版本: 1.0
 作者: Rabitto
-最後修改時間: 2021/01/16 15:35
 ================================
 */
 
@@ -40,7 +39,7 @@ For 1
 Next
 
 Sub action_standard
-	Call setup_time(12, 35)
+//	Call setup_time(12, 35)
 	Call setup_position
 	
 	Call travel("dungeon")
@@ -50,6 +49,11 @@ Sub action_standard
 	Call raid_dungeon("802", 3, "")
 	Call raid_dungeon("702", 3, "")
 	Call raid_dungeon("602", 3, "")
+	Call raid_dungeon("502", 3, "")
+	Call raid_dungeon("402", 3, "")
+	Call raid_dungeon("302", 3, "")
+	Call raid_dungeon("202", 3, "")
+	Call raid_dungeon("102", 3, "")
 	
 	Call travel("card")
 	Call raid_card("104", 3, "")
@@ -63,7 +67,7 @@ Sub action_standard
 End Sub
 
 Sub action_custom
-	Call setup_time(12, 35)
+//	Call setup_time(12, 35)
 	Call setup_position
 	
 	Call travel("dungeon")
@@ -73,7 +77,12 @@ Sub action_custom
 	Call raid_dungeon("802", 3, "")
 	Call raid_dungeon("702", 3, "")
 	Call raid_dungeon("602", 3, "")
-	
+//	Call raid_dungeon("502", 3, "")
+//	Call raid_dungeon("402", 3, "")
+//	Call raid_dungeon("302", 3, "")
+//	Call raid_dungeon("202", 3, "")
+//	Call raid_dungeon("102", 3, "")
+//	
 //	Call travel("card")
 //	Call raid_card("104", 3, "")
 //	
@@ -210,12 +219,16 @@ End Sub
 
 Sub raid_dungeon(strId, intT, strAid)
 	For intT
+		//全員在線
+		Call Lib.Util.wait_until(213, 400, "F7FFFF")
 		//副本傳送門
 		Call Lib.Util.click_until(681, 190, "9EB5D0")
 		//選擇副本
 		Call select_dungeon(strId)
-		//惡夢
+		//惡夢(雪之章以上)
 		Call Lib.Util.click_if(825, 402, "97B9D1")
+		//惡夢(光之章以下)
+		Call Lib.Util.click_if(981, 402, "97B9D1")
 		//挑戰
 		Call Lib.Util.wait_click(986, 654, "0297F4")
 		//助戰
@@ -275,6 +288,8 @@ Sub select_dungeon(strId)
 End Sub
 
 Sub raid_card(strId, intT, strAid)
+	//全員在線
+	Call Lib.Util.wait_until(213, 400, "F7FFFF")
 	//副本傳送門
 	Call Lib.Util.click_until(564, 357, "75B0E3")
 	For intT
@@ -319,6 +334,8 @@ Sub select_card(strId)
 End Sub
 
 Sub raid_dragon(strId, intT, strAid)
+	//全員在線
+	Call Lib.Util.wait_until(213, 400, "F7FFFF")
 	For intT
 		//副本傳送門
 		Call Lib.Util.click_until(670, 312, "382817")
