@@ -2,8 +2,8 @@
 SyntaxVersion=2
 BeginHotkey=97
 BeginHotkeyMod=2
-PauseHotkey=97
-PauseHotkeyMod=2
+PauseHotkey=0
+PauseHotkeyMod=0
 StopHotkey=96
 StopHotkeyMod=2
 RunOnce=1
@@ -135,7 +135,7 @@ Sub setup_position
 	Call Lib.Util.wait_until(557, 603, "A5D0E7")
 	//開啟地圖
 	Call Lib.Util.click(1200, 116)
-	Call Lib.Util.wait_until(344, 109, "D7FFFF")
+	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
 	//離開家園
 	Call Lib.Util.wait_click(270, 309, "EAD64F")
 	//離開傳送門
@@ -151,7 +151,7 @@ End Sub
 Sub travel(strId)
 	//開啟地圖
 	Call Lib.Util.click(1200, 116)
-	Call Lib.Util.wait_until(344, 109, "D7FFFF")
+	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
 	//如果是拉普拉斯城
 	If Lib.Util.color_match(271, 245, "2188DC") Then 
 		//選擇目的地
@@ -167,7 +167,7 @@ Sub travel(strId)
 	
 	//開啟地圖
 	Call Lib.Util.click(1200, 116)
-	Call Lib.Util.wait_until(344, 109, "D7FFFF")
+	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
 	//選擇目的地
 	Call select_raid(strId, "")
 End Sub
@@ -206,7 +206,7 @@ Sub select_raid(strId, strMap)
 			Call Lib.Util.wait_static(962, 238)
 		//護送
 		Case "escort"
-			Call Lib.Util.wait_click(271, 308, "D68D31")
+			Call Lib.Util.wait_click_or(271, 308, "D68D31", "D68D30")
 			If strMap = "map" Then 
 				//加載
 				Call Lib.Util.wait_until(305, 661, "01BE71")
@@ -371,7 +371,7 @@ Sub raid_escort(strId, intT, strAid)
 		If strAid = "aid" Then
 			//開啟地圖
 			Call Lib.Util.click(1200, 116)
-			Call Lib.Util.wait_until(344, 109, "D7FFFF")
+			Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
 			//查看地圖
 			Select Case Lib.Util.color_at(649, 413)
 				//神木

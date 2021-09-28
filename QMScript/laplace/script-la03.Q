@@ -2,8 +2,8 @@
 SyntaxVersion=2
 BeginHotkey=99
 BeginHotkeyMod=2
-PauseHotkey=99
-PauseHotkeyMod=2
+PauseHotkey=0
+PauseHotkeyMod=0
 StopHotkey=96
 StopHotkeyMod=2
 RunOnce=1
@@ -42,7 +42,7 @@ Next
 Sub travel(strId)
 	//開啟地圖
 	Call Lib.Util.click(1200, 116)
-	Call Lib.Util.wait_until(344, 109, "D7FFFF")
+	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
 	//選擇目的地
 	Select Case strId
 		Case "fish"

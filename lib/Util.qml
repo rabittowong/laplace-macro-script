@@ -75,9 +75,20 @@ Sub wait_click(intX, intY, strC)
 	Call click(intX, intY)
 End Sub
 
+Sub wait_click_or(intX, intY, strC, strD)
+	Call wait_until_or(intX, intY, strC, strD)
+	Call click(intX, intY)
+End Sub
+
 //等待至顏色相同
 Sub wait_until(intX, intY, strC)
 	Do Until color_match(intX, intY, strC)
+		Delay 1000 * 0.3
+	Loop
+End Sub
+
+Sub wait_until_or(intX, intY, strC, strD)
+	Do Until color_match(intX, intY, strC) Or color_match(intX, intY, strD)
 		Delay 1000 * 0.3
 	Loop
 End Sub
