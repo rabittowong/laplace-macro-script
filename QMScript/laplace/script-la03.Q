@@ -47,18 +47,18 @@ Sub travel(strId)
 	Select Case strId
 		Case "fish"
 			//選擇釣魚點
-			Call Lib.Util.wait_click(640, 418, "7FA5C5")
+			Call Lib.Util.wait_click_or(640, 418, "7FA5C5", "7FA5C4")
 			Call Lib.Util.wait_static(451, 185)
 		Case "chop"
 			//選擇砍樹點
-			Call Lib.Util.wait_click(699, 352, "7FA7CB")
-			Call Lib.Util.wait_static(451, 185)
+			Call Lib.Util.wait_click_or(699, 352, "7FA7CB", "7FA7CA")
+			Call Lib.Util.wait_static(451, 185)	
 			Call Lib.Util.click(1200, 116)
-			Call Lib.Util.wait_click(649, 243, "7FADDA")
+			Call Lib.Util.wait_click_or(649, 243, "7FADDA", "7FADD9")
 			Call Lib.Util.wait_static(451, 185)
 		Case "mine"
 			//選擇挖礦點
-			Call Lib.Util.wait_click(704, 159, "7FB1E3")
+			Call Lib.Util.wait_click_or(704, 159, "7FB1E3", "7FB1E4")
 			Call Lib.Util.wait_static(451, 185)
 	End Select
 End Sub
