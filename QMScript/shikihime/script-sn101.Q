@@ -2,8 +2,8 @@
 SyntaxVersion=2
 BeginHotkey=97
 BeginHotkeyMod=2
-PauseHotkey=97
-PauseHotkeyMod=2
+PauseHotkey=0
+PauseHotkeyMod=0
 StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
@@ -81,7 +81,6 @@ item = 0
 
 最後更新: 11/08/2016 05:00
 測試瀏覽器: Firefox 47.0
-腳本資訊: http://kousagi.neocities.org/
 =================================================*/
 
 //主程序內容

@@ -2,8 +2,8 @@
 SyntaxVersion=2
 BeginHotkey=99
 BeginHotkeyMod=2
-PauseHotkey=99
-PauseHotkeyMod=2
+PauseHotkey=0
+PauseHotkeyMod=0
 StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
