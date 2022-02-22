@@ -10,7 +10,7 @@ RunOnce=1
 EnableWindow=
 MacroID=50aa046e-9dc8-4c55-80ed-b838a34d0806
 Description=自動放生
-Enable=1
+Enable=0
 AutoRun=0
 [Repeat]
 Type=0
@@ -109,7 +109,7 @@ Sub pet_raise
 		//選擇守護1
 		Call Lib.Util.wait_click(242, 213, "587691")
 		//選擇守護2
-//		Call Lib.Util.wait_click(364, 213, "587691")
+		Call Lib.Util.wait_click(364, 213, "587691")
 		//升星
 		Call Lib.Util.wait_click(927, 653, "069AF5")
 		//關閉

@@ -51,9 +51,6 @@ Sub travel(strId)
 			Call Lib.Util.wait_static(451, 185)
 		Case "chop"
 			//¿ï¾Ü¬å¾ðÂI
-			Call Lib.Util.wait_click_or(699, 352, "7FA7CB", "7FA7CA")
-			Call Lib.Util.wait_static(451, 185)	
-			Call Lib.Util.click(1200, 116)
 			Call Lib.Util.wait_click_or(649, 243, "7FADDA", "7FADD9")
 			Call Lib.Util.wait_static(451, 185)
 		Case "mine"

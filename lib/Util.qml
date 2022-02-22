@@ -13,13 +13,20 @@ Dim ancX, ancY, ancC
 Sub program_init(strId)
 	Select Case (strId)
 		Case "laplace"
+			ancX = -1597
+			ancY = 168
 			ancC = "DB864D"
+		Case "genshin"
+			ancX = 163
+			ancY = 80
+			ancC = "D4DFE7"
 	End Select
 	
-	FindColor 0, 0, 3840, 1080, ancC, ancX, ancY
-	If ancX > 0 And ancY > 0 Then 
+//	找色功能不支援負坐標
+//	FindColor 0, 0, 1920, 1080, ancC, ancX, ancY
+	If Not(ancX = -1) And Not(ancY = -1) Then
 //		MessageBox "腳本啟動成功: " & ancX & ", " & ancY
-	Else 
+	Else
 		MessageBox "腳本啟動失敗: " & ancX & ", " & ancY
 		EndScript
 	End If

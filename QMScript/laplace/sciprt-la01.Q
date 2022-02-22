@@ -34,11 +34,6 @@ SetupOCXFile=
 
 Call Lib.Util.program_init("laplace")
 For 1
-	Call action_standard
-//	Call action_custom
-Next
-
-Sub action_standard
 //	Call setup_time(12, 35)
 	Call setup_position
 	
@@ -64,35 +59,7 @@ Sub action_standard
 	Call travel("escort")
 	Call raid_escort("101", 5, "")
 //	Call raid_escort("102", 5, "aid")
-End Sub
-
-Sub action_custom
-//	Call setup_time(12, 35)
-	Call setup_position
-	
-	Call travel("dungeon")
-	Call raid_dungeon("100", 5, "")
-	Call raid_dungeon("952", 3, "")
-	Call raid_dungeon("902", 3, "")
-	Call raid_dungeon("802", 3, "")
-	Call raid_dungeon("702", 3, "")
-	Call raid_dungeon("602", 3, "")
-//	Call raid_dungeon("502", 3, "")
-//	Call raid_dungeon("402", 3, "")
-//	Call raid_dungeon("302", 3, "")
-//	Call raid_dungeon("202", 3, "")
-//	Call raid_dungeon("102", 3, "")
-//	
-//	Call travel("card")
-//	Call raid_card("104", 3, "")
-//	
-//	Call travel("dragon")
-//	Call raid_dragon("101", 2, "")
-//	
-//	Call travel("escort")
-//	Call raid_escort("101", 5, "")
-//	Call raid_escort("102", 5, "aid")
-End Sub
+Next
 
 Sub setup_time(set_hour, set_minute)
 	//等待至指定時間
@@ -123,12 +90,12 @@ End Sub
 
 Sub setup_position
 	//如果不是家園
-	If Not(Lib.Util.color_match(1160, 319, "164A9A")) Then 
+	If Not(Lib.Util.color_match(1160, 319, "144A9B")) Then 
 		//選項
 		Call Lib.Util.wait_click(1246, 232, "80D1FF")
 	End If
 	//家園
-	Call Lib.Util.wait_click(1160, 319, "164A9A")
+	Call Lib.Util.wait_click(1160, 319, "144A9B")
 	//加載
 	Call Lib.Util.wait_until(305, 661, "01BE71")
 	//加載完畢

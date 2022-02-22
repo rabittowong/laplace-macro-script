@@ -1,13 +1,12 @@
 # QmacroScript
 
-Quick Macro is an intelligent software to record, replay and edit keyboard and mouse macros. It has programmable macro
-script editing interface for programmers to program macro script in VB Script language. This project included written
-scripts to perform automation on below game interface.
+The project contains the scripts written for the following games by Rabitto Wong. All rights reserved.
 
-1. Laplace M
+1. Laplace Mobile
 2. Shiki Garden
+3. Genshin Impact
 
 ## Installation
 
-Run `git clone` to clone the project to local environment. Copy the script files from the repository to your Quick Macro
-main directory. Open the application to run the script.
+Run `git clone` to clone the project to local environment. Copy the script files from the repository to Quick Macro main
+directory. Open the application to run the script.
