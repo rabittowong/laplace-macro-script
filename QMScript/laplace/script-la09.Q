@@ -1,14 +1,14 @@
 [General]
 SyntaxVersion=2
-BeginHotkey=105
-BeginHotkeyMod=2
+BeginHotkey=121
+BeginHotkeyMod=0
 PauseHotkey=0
 PauseHotkeyMod=0
 StopHotkey=96
 StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
-MacroID=46fa4e1c-f150-48bf-ad5f-68b03225c618
+MacroID=83daa63a-f5b0-4062-915f-30f4ebd85497
 Description=自動蛋糕
 Enable=0
 AutoRun=0
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-風之國度 自動翻牌程序
+風之國度 自動蛋糕程序
 
 版本: 1.0
 作者: Rabitto

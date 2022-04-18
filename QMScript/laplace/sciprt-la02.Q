@@ -36,4 +36,6 @@ Call Lib.Util.program_init("laplace")
 Do While 1
 	//«õ±¸
 	Call Lib.Util.click_if(837, 484, "059AF4")
+	//³¨³½
+	Call LIb.Util.click_if(862, 500, "0296F4")
 Loop

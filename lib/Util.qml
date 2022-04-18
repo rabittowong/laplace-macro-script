@@ -53,6 +53,12 @@ Sub click(intX, intY)
 	Delay 1000 * 0.3
 End Sub
 
+//移動鼠標
+Sub move_to(intX1, intY1)
+	MoveTo intX1 + ancX, intY1 + ancY
+	Delay 1000 * 0.3
+End Sub
+
 //左鍵按住移動
 Sub move(intX1, intY1, intX2, intY2)
 	MoveTo intX1 + ancX, intY1 + ancY

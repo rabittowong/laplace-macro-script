@@ -38,12 +38,12 @@ For 1
 	Call setup_position
 	
 	Call travel("dungeon")
-	Call raid_dungeon("100", 5, "")
+	Call raid_dungeon("100", 3, "")
 	Call raid_dungeon("952", 3, "")
 	Call raid_dungeon("902", 3, "")
-	Call raid_dungeon("802", 3, "")
-	Call raid_dungeon("702", 3, "")
-	Call raid_dungeon("602", 3, "")
+//	Call raid_dungeon("802", 3, "")
+//	Call raid_dungeon("702", 3, "")
+//	Call raid_dungeon("602", 3, "")
 	Call raid_dungeon("502", 3, "")
 	Call raid_dungeon("402", 3, "")
 	Call raid_dungeon("302", 3, "")
@@ -185,25 +185,27 @@ Sub select_raid(strId, strMap)
 End Sub
 
 Sub raid_dungeon(strId, intT, strAid)
-	For intT
-		//全員在線
-		Call Lib.Util.wait_until(213, 400, "F7FFFF")
-		//副本傳送門
-		Call Lib.Util.click_until(681, 190, "9EB5D0")
-		//選擇副本
-		Call select_dungeon(strId)
-		//惡夢(雪之章以上)
-		Call Lib.Util.click_if(825, 402, "97B9D1")
-		//惡夢(光之章以下)
-		Call Lib.Util.click_if(981, 402, "97B9D1")
-		//挑戰
-		Call Lib.Util.wait_click(986, 654, "0297F4")
-		//助戰
-		If strAid = "aid" Then 
-			Call Lib.Util.wait_click(856, 230, "232B35")
+	For t = 1 To intT
+		If t = 1 Or strId = "102" Or strId = "202" Or strId = "302" Or strId = "402" Or strId = "502" Then 
+			//全員在線
+			Call Lib.Util.wait_until(213, 400, "F7FFFF")
+			//副本傳送門
+			Call Lib.Util.click_until(681, 190, "9EB5D0")
+			//選擇副本
+			Call select_dungeon(strId)
+			//惡夢(雪之章以上)
+			Call Lib.Util.click_if(825, 402, "97B9D1")
+			//惡夢(光之章以下)
+			Call Lib.Util.click_if(981, 402, "97B9D1")
+			//挑戰
+			Call Lib.Util.wait_click(986, 654, "0297F4")
+			//助戰
+			If strAid = "aid" Then 
+				Call Lib.Util.wait_click(856, 230, "232B35")
+			End If
+			//強制進入
+			Call Lib.Util.wait_click(867, 581, "059AF4")
 		End If
-		//強制進入
-		Call Lib.Util.wait_click(867, 581, "059AF4")
 		//加載
 		Call Lib.Util.wait_until(305, 661, "01BE71")
 		//自動戰鬥
@@ -259,17 +261,17 @@ Sub raid_card(strId, intT, strAid)
 	Call Lib.Util.wait_until(213, 400, "F7FFFF")
 	//副本傳送門
 	Call Lib.Util.click_until(564, 357, "75B0E3")
+	//選擇副本
+	Call select_card(strId)
+	//多人挑戰
+	Call Lib.Util.wait_click(692, 659, "0297F4")
+	//助戰
+	If strAid = "aid" Then 
+		Call Lib.Util.wait_click(856, 230, "232B35")
+	End If
+	//強制進入
+	Call Lib.Util.wait_click(867, 581, "059AF4")
 	For intT
-		//選擇副本
-		Call select_card(strId)
-		//多人挑戰
-		Call Lib.Util.wait_click(692, 659, "0297F4")
-		//助戰
-		If strAid = "aid" Then 
-			Call Lib.Util.wait_click(856, 230, "232B35")
-		End If
-		//強制進入
-		Call Lib.Util.wait_click(867, 581, "059AF4")
 		//加載
 		Call Lib.Util.wait_until(305, 661, "01BE71")
 		//自動戰鬥
@@ -305,7 +307,7 @@ Sub raid_dragon(strId, intT, strAid)
 	Call Lib.Util.wait_until(213, 400, "F7FFFF")
 	For intT
 		//副本傳送門
-		Call Lib.Util.click_until(670, 312, "382817")
+		Call Lib.Util.click_until(720, 312, "8F562C")
 		//挑戰
 		Call Lib.Util.wait_click(820, 626, "059AF4")
 		//助戰

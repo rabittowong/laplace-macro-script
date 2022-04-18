@@ -34,9 +34,9 @@ SetupOCXFile=
 
 Call Lib.Util.program_init("laplace")
 For 1
-	Call action_fish(40)
-	Call action_chop(40)
-	Call action_mine(40)
+	Call action_fish(65)
+	Call action_chop(65)
+	Call action_mine(65)
 Next
 
 Sub travel(strId)

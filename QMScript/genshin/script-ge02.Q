@@ -1,14 +1,14 @@
 [General]
 SyntaxVersion=2
-BeginHotkey=98
-BeginHotkeyMod=2
+BeginHotkey=121
+BeginHotkeyMod=0
 PauseHotkey=0
 PauseHotkeyMod=0
 StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
-MacroID=2fda1a90-c62d-46a0-9f87-25ef84277360
+MacroID=9fd45712-d7f9-4015-9ad9-9aec4f954678
 Description=自動強化
 Enable=0
 AutoRun=0
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-原神 自動鎖定程序
+原神 自動強化程序
 
 版本: 1.0
 作者: Rabitto

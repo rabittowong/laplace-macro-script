@@ -1,6 +1,6 @@
 [General]
 SyntaxVersion=2
-BeginHotkey=103
+BeginHotkey=100
 BeginHotkeyMod=2
 PauseHotkey=0
 PauseHotkeyMod=0
