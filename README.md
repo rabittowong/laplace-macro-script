@@ -1,4 +1,4 @@
-# QmacroScript
+# Qmacro Script
 
 The project contains the scripts written for the following games by Rabitto Wong. All rights reserved.
 
