@@ -1,7 +1,7 @@
 [General]
 SyntaxVersion=2
-BeginHotkey=101
-BeginHotkeyMod=2
+BeginHotkey=121
+BeginHotkeyMod=0
 PauseHotkey=0
 PauseHotkeyMod=0
 StopHotkey=96
@@ -10,7 +10,7 @@ RunOnce=1
 EnableWindow=
 MacroID=c0ce5948-b971-44d0-aaae-74b9571f803d
 Description=¦Û°Ê¨ê³æ
-Enable=1
+Enable=0
 AutoRun=0
 [Repeat]
 Type=0
@@ -35,10 +35,10 @@ SetupOCXFile=
 Call Lib.Util.program_init("laplace")
 Do While 1
 //	Call update_order("1")
-	Call update_order("2")
+//	Call update_order("2")
 //	Call update_order("3")
 //	Call update_order("4")
-//	Call update_order("5")
+	Call update_order("5")
 //	Call update_order("6")
 Loop
 

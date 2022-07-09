@@ -116,21 +116,21 @@ Sub setup_position
 End Sub
 
 Sub travel(strId)
-	//開啟地圖
-	Call Lib.Util.click(1200, 116)
-	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
-	//如果是拉普拉斯城
-	If Lib.Util.color_match(271, 245, "2188DC") Then 
-		//選擇目的地
-		Call select_raid(strId, "")
-	Else 
-		//世界地圖
-		Call Lib.Util.wait_click(344, 109, "D7FFFF")
-		//拉普拉斯城
-		Call Lib.Util.wait_click(495, 221, "A1BAC4")
-		//選擇目的地
-		Call select_raid(strId, "map")
-	End If
+//	//開啟地圖
+//	Call Lib.Util.click(1200, 116)
+//	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
+//	//如果是拉普拉斯城
+//	If Lib.Util.color_match(271, 245, "2188DC") Then 
+//		//選擇目的地
+//		Call select_raid(strId, "")
+//	Else 
+//		//世界地圖
+//		Call Lib.Util.wait_click(344, 109, "D7FFFF")
+//		//拉普拉斯城
+//		Call Lib.Util.wait_click(495, 221, "A1BAC4")
+//		//選擇目的地
+//		Call select_raid(strId, "map")
+//	End If
 	
 	//開啟地圖
 	Call Lib.Util.click(1200, 116)
@@ -190,7 +190,7 @@ Sub raid_dungeon(strId, intT, strAid)
 			//全員在線
 			Call Lib.Util.wait_until(213, 400, "F7FFFF")
 			//副本傳送門
-			Call Lib.Util.click_until(681, 190, "9EB5D0")
+			Call select_dungeon_page
 			//選擇副本
 			Call select_dungeon(strId)
 			//惡夢(雪之章以上)
@@ -208,13 +208,41 @@ Sub raid_dungeon(strId, intT, strAid)
 		End If
 		//加載
 		Call Lib.Util.wait_until(305, 661, "01BE71")
+		//加載完畢
+		Call Lib.Util.wait_until_or(665, 599, "B0E0F2", "FFFFFF")
 		//自動戰鬥
-		Call Lib.Util.wait_click(665, 599, "B0E0F2")
+		Call Lib.Util.click_if(665, 599, "B0E0F2")
 		//加載
 		Call Lib.Util.wait_until(305, 661, "01BE71")
 		//加載完畢
-		Call Lib.Util.wait_until(665, 599, "B0E0F2")
+		Do Until Lib.Util.color_match(665, 599, "B0E0F2") Or Lib.Util.color_match(665, 599, "FFFFFF") Or Lib.Util.color_match(863, 207, "232B35")
+			Delay 1000 * 0.3
+		Loop
 	Next
+End Sub
+
+Sub select_dungeon_page
+	intC = 0
+	//裝備秘境
+	Do Until Lib.Util.color_match(681, 190, "9EB5D0")
+		If intC = 1000 Then 
+			//線路
+			Call Lib.Util.click(1149, 161)
+			//綠線
+			Call Lib.Util.click_if(1187, 114, "59C38E")
+			Call Lib.Util.click_if(1187, 160, "59C38E")
+			//黃線
+			Call Lib.Util.click_if(1187, 114, "3395F1")
+			Call Lib.Util.click_if(1187, 160, "3395F1")
+			//紅線
+			Call Lib.Util.click_if(1187, 114, "343BF2")
+			Call Lib.Util.click_if(1187, 160, "343BF2")
+			intC = 0
+		End If
+		//傳送門
+		Call Lib.Util.click(681, 190)
+		intC = intC + 1
+	Loop
 End Sub
 
 Sub select_dungeon(strId)
