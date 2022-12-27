@@ -53,6 +53,12 @@ Sub click(intX, intY)
 	Delay 1000 * 0.3
 End Sub
 
+//左鍵速點
+Sub click_instant(intX, intY)
+	MoveTo intX + ancX, intY + ancY
+	LeftClick 1
+End Sub
+
 //移動鼠標
 Sub move_to(intX1, intY1)
 	MoveTo intX1 + ancX, intY1 + ancY
