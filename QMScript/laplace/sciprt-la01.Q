@@ -34,7 +34,7 @@ SetupOCXFile=
 
 Call Lib.Util.program_init("laplace")
 For 1
-//	Call setup_time(12, 35)
+//	Call setup_time(5, 20)
 	Call setup_position
 	
 	Call travel("dungeon")
@@ -57,7 +57,7 @@ For 1
 	Call raid_dragon("101", 2, "")
 	
 	Call travel("escort")
-	Call raid_escort("101", 5, "")
+	Call raid_escort("101", 0, "")
 //	Call raid_escort("102", 5, "aid")
 Next
 
@@ -89,17 +89,17 @@ Sub setup_time(set_hour, set_minute)
 End Sub
 
 Sub setup_position
-	//如果不是家園
-	If Not(Lib.Util.color_match(1160, 319, "144A9B")) Then 
-		//選項
-		Call Lib.Util.wait_click(1246, 232, "80D1FF")
-	End If
-	//家園
-	Call Lib.Util.wait_click(1160, 319, "144A9B")
-	//加載
-	Call Lib.Util.wait_until(305, 661, "01BE71")
-	//加載完畢
-	Call Lib.Util.wait_until(557, 603, "A5D0E7")
+//	//如果不是家園
+//	If Not(Lib.Util.color_match(1160, 319, "144A9B")) Then 
+//		//選項
+//		Call Lib.Util.wait_click(1246, 232, "80D1FF")
+//	End If
+//	//家園
+//	Call Lib.Util.wait_click(1160, 319, "144A9B")
+//	//加載
+//	Call Lib.Util.wait_until(305, 661, "01BE71")
+//	//加載完畢
+//	Call Lib.Util.wait_until(557, 603, "A5D0E7")
 	//開啟地圖
 	Call Lib.Util.click(1200, 116)
 	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
@@ -365,7 +365,7 @@ Sub raid_escort(strId, intT, strAid)
 	//副本傳送門
 	Call Lib.Util.click_until(581, 269, "D6E7EF")
 	//接受任務
-	Call Lib.Util.wait_click(905, 640, "E39D6F")
+	Call Lib.Util.wait_click(905, 640, "E49D70")
 	For intT
 		//完成
 		Call Lib.Util.wait_until(437, 310, "167AF2")

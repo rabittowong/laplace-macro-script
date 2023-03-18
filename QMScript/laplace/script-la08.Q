@@ -36,9 +36,9 @@ Call Lib.Util.program_init("laplace")
 Rem start_pos
 For 1
 //	Call play_perfect_easy
-//	Call play_tolerance_one_easy
+	Call play_tolerance_one_easy
 //	Call play_perfect_normal
-	Call play_tolerance_one_normal
+//	Call play_tolerance_one_normal
 Next
 
 Sub play_perfect_easy

@@ -1,6 +1,6 @@
 [General]
 SyntaxVersion=2
-BeginHotkey=32
+BeginHotkey=121
 BeginHotkeyMod=0
 PauseHotkey=0
 PauseHotkeyMod=0
@@ -8,8 +8,8 @@ StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
-MacroID=b3d54b0e-5a8b-41a0-baef-40f5ae4eddcb
-Description=自動鎖定
+MacroID=9fd45712-d7f9-4015-9ad9-9aec4f954678
+Description=自動拾取
 Enable=0
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-原神 自動鎖定程序
+原神 自動拾取程序
 
 版本: 1.0
 作者: Rabitto
@@ -33,11 +33,17 @@ SetupOCXFile=
 */
 
 Call Lib.Util.program_init("genshin")
-For 1
-	//保存滑鼠坐標
-	GetCursorPos intX, intY
-	//鎖定
-	Call Lib.Util.click(1480, 179)
-	//回復滑鼠坐標
-	MoveTo intX, intY
-Next
+Do While 1
+	//拾取1
+	If Lib.Util.color_match(934, 469, "DCDCDC") Then 
+		KeyPress "F", 1
+	End If
+	//拾取2
+	If Lib.Util.color_match(934, 439, "DCDCDC") Then 
+		KeyPress "F", 1
+	End If
+	//拾取3
+	If Lib.Util.color_match(934, 409, "DCDCDC") Then 
+		KeyPress "F", 1
+	End If
+Loop

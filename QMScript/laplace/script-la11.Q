@@ -8,7 +8,7 @@ StopHotkey=96
 StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
-MacroID=c0ce5948-b971-44d0-aaae-74b9571f803d
+MacroID=23d92610-90b1-48fd-92c3-1a2c53f61a04
 Description=¦Û°Ê¨ê³æ
 Enable=0
 AutoRun=0
@@ -38,8 +38,8 @@ Do While 1
 //	Call update_order("2")
 //	Call update_order("3")
 //	Call update_order("4")
-	Call update_order("5")
-//	Call update_order("6")
+//	Call update_order("5")
+	Call update_order("6")
 Loop
 
 Sub update_order(strP)

@@ -39,5 +39,5 @@ Do While 1
 	//¦Û°Ê
 	Call Lib.Util.click_if(665, 599, "B0E0F2")
 	//´_¬¡
-	Call Lib.Util.click_if(669, 482, "E39D6F")
+	Call Lib.Util.click_if(669, 482, "E49D70")
 Loop

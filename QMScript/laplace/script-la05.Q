@@ -53,35 +53,35 @@ Sub pet_catch
 		//全選
 		Call Lib.Util.wait_click(748, 648, "01BA62")
 		//位置11
-		If Lib.Util.color_match(572, 268, "6ADAFF") Then 
+		If Lib.Util.color_match(572, 268, "5ED7FF") Then 
 			Call Lib.Util.click(654, 261)
 		End If
 		//位置12
-		If Lib.Util.color_match(723, 268, "6ADAFF") Then 
+		If Lib.Util.color_match(723, 268, "5FD7FF") Then 
 			Call Lib.Util.click(804, 261)
 		End If
 		//位置13
-		If Lib.Util.color_match(873, 268, "68DAFF") Then 
+		If Lib.Util.color_match(873, 268, "5FD7FF") Then 
 			Call Lib.Util.click(954, 261)
 		End If
 		//位置14
-		If Lib.Util.color_match(1024, 268, "6ADAFF") Then 
+		If Lib.Util.color_match(1024, 268, "5ED7FF") Then 
 			Call Lib.Util.click(1105, 261)
 		End If
 		//位置21
-		If Lib.Util.color_match(572, 409, "6FDDFF") Then 
+		If Lib.Util.color_match(572, 409, "64D8FF") Then 
 			Call Lib.Util.click(654, 402)
 		End If
 		//位置22
-		If Lib.Util.color_match(723, 409, "71DDFF") Then 
+		If Lib.Util.color_match(723, 409, "64D8FF") Then 
 			Call Lib.Util.click(804, 402)
 		End If
 		//位置23
-		If Lib.Util.color_match(873, 409, "6EDDFF") Then 
+		If Lib.Util.color_match(873, 409, "64D8FF") Then 
 			Call Lib.Util.click(954, 402)
 		End If
 		//位置24
-		If Lib.Util.color_match(1024, 409, "6FDDFF") Then 
+		If Lib.Util.color_match(1024, 409, "64D8FF") Then 
 			Call Lib.Util.click(1105, 402)
 		End If
 		//簽訂契約
@@ -111,7 +111,7 @@ Sub pet_raise
 		//選擇守護2
 		Call Lib.Util.wait_click(364, 213, "587691")
 		//升星
-		Call Lib.Util.wait_click(927, 653, "069AF5")
+		Call Lib.Util.wait_click(927, 653, "059AF4")
 		//關閉
 		Call Lib.Util.wait_click(927, 653, "B5D7E7")
 		//厲害了

@@ -8,9 +8,9 @@ StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
-MacroID=9fd45712-d7f9-4015-9ad9-9aec4f954678
+MacroID=56d64bfb-8035-45be-8a85-abef8d8f8c42
 Description=自動強化
-Enable=0
+Enable=1
 AutoRun=0
 [Repeat]
 Type=0
@@ -35,7 +35,7 @@ SetupOCXFile=
 Call Lib.Util.program_init("genshin")
 Do While 1
 	//等待強化完成
-	Call Lib.Util.wait_until(1002, 158, "FFA4E9")
+	Call Lib.Util.wait_until(1004, 130, "FFFFFF")
 	//快捷放入
 	Call Lib.Util.click(1461, 660)
 	//強化

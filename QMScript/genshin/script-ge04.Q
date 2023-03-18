@@ -10,7 +10,7 @@ RunOnce=1
 EnableWindow=
 MacroID=2fda1a90-c62d-46a0-9f87-25ef84277360
 Description=¦Û°Ê©e°U
-Enable=1
+Enable=0
 AutoRun=0
 [Repeat]
 Type=0

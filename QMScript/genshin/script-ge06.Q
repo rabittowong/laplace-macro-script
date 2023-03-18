@@ -8,8 +8,8 @@ StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
-MacroID=b3d54b0e-5a8b-41a0-baef-40f5ae4eddcb
-Description=自動鎖定
+MacroID=cee33f11-1267-467e-a99f-e7b1d7efe823
+Description=自動確定
 Enable=0
 AutoRun=0
 [Repeat]
@@ -37,7 +37,7 @@ For 1
 	//保存滑鼠坐標
 	GetCursorPos intX, intY
 	//鎖定
-	Call Lib.Util.click(1480, 179)
+	Call Lib.Util.click(1534, 498)
 	//回復滑鼠坐標
 	MoveTo intX, intY
 Next
