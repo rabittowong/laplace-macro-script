@@ -34,10 +34,12 @@ SetupOCXFile=
 
 Call Lib.Util.program_init("laplace")
 For 1
-//	Call setup_time(5, 20)
-	Call setup_position
+//	Call init_time(5, 20)
+	Call init_position
 	
-	Call travel("dungeon")
+	Call Lib.LineBot.send_message_start()
+	
+	Call character_move_to("dungeon")
 	Call raid_dungeon("100", 3, "")
 	Call raid_dungeon("952", 3, "")
 	Call raid_dungeon("902", 3, "")
@@ -50,18 +52,20 @@ For 1
 	Call raid_dungeon("202", 3, "")
 	Call raid_dungeon("102", 3, "")
 	
-	Call travel("card")
+	Call character_move_to("card")
 	Call raid_card("104", 3, "")
 	
-	Call travel("dragon")
+	Call character_move_to("dragon")
 	Call raid_dragon("101", 2, "")
 	
-	Call travel("escort")
-	Call raid_escort("101", 0, "")
+	Call character_move_to("escort")
+	Call raid_escort("101", 5, "")
 //	Call raid_escort("102", 5, "aid")
+	
+	Call Lib.LineBot.send_message_end()
 Next
 
-Sub setup_time(set_hour, set_minute)
+Sub init_time(set_hour, set_minute)
 	//等待至指定時間
 	Do Until hour(time) * 100 + minute(time) >= set_hour * 100 + set_minute
 		Delay 1000 * 30
@@ -88,99 +92,48 @@ Sub setup_time(set_hour, set_minute)
 	Loop
 End Sub
 
-Sub setup_position
-//	//如果不是家園
-//	If Not(Lib.Util.color_match(1160, 319, "144A9B")) Then 
-//		//選項
-//		Call Lib.Util.wait_click(1246, 232, "80D1FF")
-//	End If
-//	//家園
-//	Call Lib.Util.wait_click(1160, 319, "144A9B")
-//	//加載
-//	Call Lib.Util.wait_until(305, 661, "01BE71")
-//	//加載完畢
-//	Call Lib.Util.wait_until(557, 603, "A5D0E7")
+Sub init_position
 	//開啟地圖
-	Call Lib.Util.click(1200, 116)
-	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
+	Call open_map()
 	//離開家園
-	Call Lib.Util.wait_click(270, 309, "EAD64F")
+	Call wait_click(270, 309, "EAD64F")
 	//離開傳送門
-	Call Lib.Util.click_until(636, 415, "A5C8DC")
+	Call click_until(636, 415, "A5C8DC")
 	//確定
-	Call Lib.Util.wait_click(749, 498, "059AF4")
+	Call wait_click(749, 498, "059AF4")
 	//加載
-	Call Lib.Util.wait_until(305, 661, "01BE71")
+	Call wait_until(305, 661, "01BE71")
 	//加載完畢
-	Call Lib.Util.wait_until(665, 599, "B0E0F2")
+	Call wait_until(665, 599, "B0E0F2")
 End Sub
 
-Sub travel(strId)
-//	//開啟地圖
-//	Call Lib.Util.click(1200, 116)
-//	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
-//	//如果是拉普拉斯城
-//	If Lib.Util.color_match(271, 245, "2188DC") Then 
-//		//選擇目的地
-//		Call select_raid(strId, "")
-//	Else 
-//		//世界地圖
-//		Call Lib.Util.wait_click(344, 109, "D7FFFF")
-//		//拉普拉斯城
-//		Call Lib.Util.wait_click(495, 221, "A1BAC4")
-//		//選擇目的地
-//		Call select_raid(strId, "map")
-//	End If
-	
+Sub open_map()
 	//開啟地圖
 	Call Lib.Util.click(1200, 116)
-	Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
-	//選擇目的地
-	Call select_raid(strId, "")
+	Call wait_until_or(344, 109, "D7FFFF", "D7FEFF")
 End Sub
 
-Sub select_raid(strId, strMap)
+Sub character_move_to(strId)
+	//開啟地圖
+	Call open_map()
+	//選擇目的地
 	Select Case strId
 		//裝備秘境
 		Case "dungeon"
-			Call Lib.Util.wait_click(271, 434, "1894D2")
-			If strMap = "map" Then 
-				//加載
-				Call Lib.Util.wait_until(305, 661, "01BE71")
-				//加載完畢
-				Call Lib.Util.wait_until(665, 599, "B0E0F2")
-			End If
-			Call Lib.Util.wait_static(941, 701)
+			Call wait_click(271, 434, "1894D2")
+			Call Lib.Util.wait_until_color_unchange(941, 701)
 		//魂卡秘境
 		Case "card"
-			Call Lib.Util.wait_click(271, 245, "2188DC")
-			If strMap = "map" Then 
-				//加載
-				Call Lib.Util.wait_until(305, 661, "01BE71")
-				//加載完畢
-				Call Lib.Util.wait_until(665, 599, "B0E0F2")
-			End If
-			Call Lib.Util.wait_static(29, 417)
+			Call wait_click(271, 245, "2188DC")
+			Call Lib.Util.wait_until_color_unchange(29, 417)
 		//龍之秘寶
 		Case "dragon"
-			Call Lib.Util.wait_click(271, 564, "A5519D")
-			If strMap = "map" Then 
-				//加載
-				Call Lib.Util.wait_until(305, 661, "01BE71")
-				//加載完畢
-				Call Lib.Util.wait_until(665, 599, "B0E0F2")
-			End If
-			Call Lib.Util.wait_static(962, 238)
+			Call wait_click(271, 564, "A5519D")
+			Call Lib.Util.wait_until_color_unchange(962, 238)
 		//護送
 		Case "escort"
-			Call Lib.Util.wait_click_or(271, 308, "D68D31", "D68D30")
-			If strMap = "map" Then 
-				//加載
-				Call Lib.Util.wait_until(305, 661, "01BE71")
-				//加載完畢
-				Call Lib.Util.wait_until(665, 599, "B0E0F2")
-			End If
-			Call Lib.Util.wait_static(395, 293)
+			Call wait_click_or(271, 308, "D68D31", "D68D30")
+			Call Lib.Util.wait_until_color_unchange(395, 293)
 	End Select
 End Sub
 
@@ -188,9 +141,9 @@ Sub raid_dungeon(strId, intT, strAid)
 	For t = 1 To intT
 		If t = 1 Or strId = "102" Or strId = "202" Or strId = "302" Or strId = "402" Or strId = "502" Then 
 			//全員在線
-			Call Lib.Util.wait_until(213, 400, "F7FFFF")
+			Call wait_until(213, 400, "F7FFFF")
 			//副本傳送門
-			Call select_dungeon_page
+			Call click_until(681, 190, "9EB5D0")
 			//選擇副本
 			Call select_dungeon(strId)
 			//惡夢(雪之章以上)
@@ -198,51 +151,28 @@ Sub raid_dungeon(strId, intT, strAid)
 			//惡夢(光之章以下)
 			Call Lib.Util.click_if(981, 402, "97B9D1")
 			//挑戰
-			Call Lib.Util.wait_click(986, 654, "0297F4")
+			Call wait_click(986, 654, "0297F4")
+			//難度較大
+			Delay 1000 * 0.3
+			Call Lib.Util.click_if(749, 499, "059AF4")
 			//助戰
 			If strAid = "aid" Then 
-				Call Lib.Util.wait_click(863, 207, "232B35")
+				Call wait_click(863, 207, "232B35")
 			End If
 			//強制進入
-			Call Lib.Util.wait_click(867, 581, "059AF4")
+			Call wait_click(867, 581, "059AF4")
 		End If
 		//加載
-		Call Lib.Util.wait_until(305, 661, "01BE71")
+		Call wait_until(305, 661, "01BE71")
 		//加載完畢
-		Call Lib.Util.wait_until_or(665, 599, "B0E0F2", "FFFFFF")
+		Call wait_until_or(665, 599, "B0E0F2", "FFFFFF")
 		//自動戰鬥
 		Call Lib.Util.click_if(665, 599, "B0E0F2")
 		//加載
-		Call Lib.Util.wait_until(305, 661, "01BE71")
+		Call wait_until(305, 661, "01BE71")
 		//加載完畢
-		Do Until Lib.Util.color_match(665, 599, "B0E0F2") Or Lib.Util.color_match(665, 599, "FFFFFF") Or Lib.Util.color_match(863, 207, "232B35")
-			Delay 1000 * 0.3
-		Loop
+		Call wait_until_or(665, 599, "B0E0F2", "FFFFFF")
 	Next
-End Sub
-
-Sub select_dungeon_page
-	intC = 0
-	//裝備秘境
-	Do Until Lib.Util.color_match(681, 190, "9EB5D0")
-		If intC = 1000 Then 
-			//線路
-			Call Lib.Util.click(1149, 161)
-			//綠線
-			Call Lib.Util.click_if(1187, 114, "59C38E")
-			Call Lib.Util.click_if(1187, 160, "59C38E")
-			//黃線
-			Call Lib.Util.click_if(1187, 114, "3395F1")
-			Call Lib.Util.click_if(1187, 160, "3395F1")
-			//紅線
-			Call Lib.Util.click_if(1187, 114, "343BF2")
-			Call Lib.Util.click_if(1187, 160, "343BF2")
-			intC = 0
-		End If
-		//傳送門
-		Call Lib.Util.click(681, 190)
-		intC = intC + 1
-	Loop
 End Sub
 
 Sub select_dungeon(strId)
@@ -286,35 +216,35 @@ End Sub
 
 Sub raid_card(strId, intT, strAid)
 	//全員在線
-	Call Lib.Util.wait_until(213, 400, "F7FFFF")
+	Call wait_until(213, 400, "F7FFFF")
 	//副本傳送門
-	Call Lib.Util.click_until(564, 357, "75B0E3")
+	Call click_until(564, 357, "75B0E3")
 	//選擇副本
 	Call select_card(strId)
 	//多人挑戰
-	Call Lib.Util.wait_click(692, 659, "0297F4")
+	Call wait_click(692, 659, "0297F4")
 	//助戰
 	If strAid = "aid" Then 
-		Call Lib.Util.wait_click(863, 207, "232B35")
+		Call wait_click(863, 207, "232B35")
 	End If
 	//強制進入
-	Call Lib.Util.wait_click(867, 581, "059AF4")
+	Call wait_click(867, 581, "059AF4")
 	For t = 1 To intT
 		//加載
-		Call Lib.Util.wait_until(305, 661, "01BE71")
+		Call wait_until(305, 661, "01BE71")
 		//自動戰鬥
-		Call Lib.Util.wait_click(665, 599, "B0E0F2")
+		Call wait_click(665, 599, "B0E0F2")
 		//加載
-		Call Lib.Util.wait_until(305, 661, "01BE71")
+		Call wait_until(305, 661, "01BE71")
 		//加載完畢
 		If t = intT Then 
-			Call Lib.Util.wait_until(564, 357, "75B0E3")
+			Call wait_until(564, 357, "75B0E3")
 		Else 
-			Call Lib.Util.wait_until(863, 207, "232B35")
+			Call wait_until(863, 207, "232B35")
 		End If
 	Next
 	//關閉副本傳送門
-	Call Lib.Util.wait_click(1240, 50, "B5E1FD")
+	Call wait_click(1240, 50, "B5E1FD")
 End Sub
 
 Sub select_card(strId)
@@ -336,74 +266,126 @@ End Sub
 
 Sub raid_dragon(strId, intT, strAid)
 	//全員在線
-	Call Lib.Util.wait_until(213, 400, "F7FFFF")
+	Call wait_until(213, 400, "F7FFFF")
 	For t = 1 To intT
 		//副本傳送門
-		Call Lib.Util.click_until(720, 312, "8F562C")
+		Call click_until(720, 312, "8F562C")
 		//挑戰
-		Call Lib.Util.wait_click(820, 626, "059AF4")
+		Call wait_click(820, 626, "059AF4")
 		//助戰
 		If strAid = "aid" Then 
-			Call Lib.Util.wait_click(863, 207, "232B35")
+			Call wait_click(863, 207, "232B35")
 		End If
 		//強制進入
 		If t = 2 Then 
-			Call Lib.Util.wait_click(867, 581, "059AF4")
+			Call wait_click(867, 581, "059AF4")
 		End If
 		//加載
-		Call Lib.Util.wait_until(305, 661, "01BE71")
-		//自動戰鬥
-		Call Lib.Util.wait_click(665, 599, "B0E0F2")
-		//加載
-		Call Lib.Util.wait_until(305, 661, "01BE71")
+		Call wait_until(305, 661, "01BE71")
 		//加載完畢
-		Call Lib.Util.wait_until(665, 599, "B0E0F2")
+		Call wait_until_or(665, 599, "B0E0F2", "FFFFFF")
+		//自動戰鬥
+		Call Lib.Util.click_if(665, 599, "B0E0F2")
+		//加載
+		Call wait_until(305, 661, "01BE71")
+		//加載完畢
+		Call wait_until_or(665, 599, "B0E0F2", "FFFFFF")
 	Next
 End Sub
 
 Sub raid_escort(strId, intT, strAid)
 	//副本傳送門
-	Call Lib.Util.click_until(581, 269, "D6E7EF")
+	Call click_until(581, 269, "D6E7EF")
 	//接受任務
-	Call Lib.Util.wait_click(905, 640, "E49D70")
+	Call wait_click(905, 640, "E49D70")
 	For intT
 		//完成
-		Call Lib.Util.wait_until(437, 310, "167AF2")
+		Call wait_until(437, 310, "167AF2")
 		//完成完畢
-		Call Lib.Util.wait_until(665, 599, "B0E0F2")
+		Call wait_until(665, 599, "B0E0F2")
 		If strAid = "aid" Then
 			//開啟地圖
-			Call Lib.Util.click(1200, 116)
-			Call Lib.Util.wait_until_or(344, 109, "D7FFFF", "D7FEFF")
+			Call open_map()
 			//查看地圖
 			Select Case Lib.Util.color_at(649, 413)
 				//神木
 				Case "BDEFF9"
 					//副本傳送門
-					Call Lib.Util.click_until(577, 287, "CDDDE6")
+					Call click_until(577, 287, "CDDDE6")
 					//接受任務
-					Call Lib.Util.wait_click(905, 641, "E19D6E")
+					Call wait_click(905, 641, "E19D6E")
 				//銀雪
 				Case "D6E396"
 					//副本傳送門
-					Call Lib.Util.click_until(618, 274, "D5E5EE")
+					Call click_until(618, 274, "D5E5EE")
 					//接受任務
-					Call Lib.Util.wait_click(905, 641, "E19D6E")
+					Call wait_click(905, 641, "E19D6E")
 				//百花
 				Case "D8CFE8"
 					//副本傳送門
-					Call Lib.Util.click_until(698, 372, "C8DEDA")
+					Call click_until(698, 372, "C8DEDA")
 					//接受任務
-					Call Lib.Util.wait_click(905, 641, "E19D6E")
+					Call wait_click(905, 641, "E19D6E")
 				//日陽
 				Case "7BBAFF"
 					//副本傳送門
 					
 					//接受任務
-					Call Lib.Util.wait_click(905, 641, "E19D6E")
+					Call wait_click(905, 641, "E19D6E")
 			End Select
 			//關閉副本傳送門
 			Call Lib.Util.click_if(1240, 50, "B5DFF6")
 		End If
 	Next
+End Sub
+
+//左鍵點擊至顏色相同
+Sub click_until(intX, intY, strC)
+	intL = 0
+	Do Until Lib.Util.color_match(intX, intY, strC)
+		Call Lib.Util.click(intX, intY)
+		intL = intL + 1
+		If intL > 100 Then 
+			Call Lib.LineBot.send_message_help()
+			EndScript
+		End If
+	Loop
+End Sub
+
+//等待至顏色相同
+Sub wait_until(intX, intY, strC)
+	intL = 0
+	Do Until Lib.Util.color_match(intX, intY, strC)
+		Delay 1000 * 0.3
+		intL = intL + 1
+		If intL > 100 Then 
+			Call Lib.LineBot.send_message_help()
+			EndScript
+		End If
+	Loop
+End Sub
+
+//等待至顏色相同(2種顏色)
+Sub wait_until_or(intX, intY, strC1, strC2)
+	intL = 0
+	Do Until Lib.Util.color_match(intX, intY, strC1) Or Lib.Util.color_match(intX, intY, strC2)
+		Delay 1000 * 0.3
+		intL = intL + 1
+		If intL > 100 Then 
+			Call Lib.LineBot.send_message_help()
+			EndScript
+		End If
+	Loop
+End Sub
+
+//等待至顏色相同時左鍵點擊
+Sub wait_click(intX, intY, strC)
+	Call wait_until(intX, intY, strC)
+	Call Lib.Util.click(intX, intY)
+End Sub
+
+//等待至顏色相同時左鍵點擊(2種顏色)
+Sub wait_click_or(intX, intY, strC1, strC2)
+	Call wait_until_or(intX, intY, strC1, strC2)
+	Call Lib.Util.click(intX, intY)
 End Sub

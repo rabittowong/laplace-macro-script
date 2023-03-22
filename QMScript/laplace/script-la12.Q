@@ -40,59 +40,65 @@ Do While 1
 	Select Case keyS
 		Case 32
 			//Á¡»æ1
-			Call Lib.Util.click_instant(418, 455)
-			Call Lib.Util.click_instant(418, 455)
+			Call instant_click(418, 455)
+			Call instant_click(418, 455)
 			//Á¡»æ2
-			Call Lib.Util.click_instant(396, 532)
+			Call instant_click(396, 532)
 			//Á¡»æ3
-			Call Lib.Util.click_instant(557, 451)
+			Call instant_click(557, 451)
 			//Á¡»æ4
-			Call Lib.Util.click_instant(553, 534)
+			Call instant_click(553, 534)
 			//©@°Ø1
-			Call Lib.Util.click_instant(232, 518)
+			Call instant_click(232, 518)
 			//©@°Ø2
-			Call Lib.Util.click_instant(260, 459)
+			Call instant_click(260, 459)
 			//©@°Ø3
-			Call Lib.Util.click_instant(285, 398)
+			Call instant_click(285, 398)
 			//¦×®Û¨÷1
-			Call Lib.Util.click_instant(1000, 394)
+			Call instant_click(1000, 394)
 			//¦×®Û¨÷2
-			Call Lib.Util.click_instant(1083, 410)
+			Call instant_click(1083, 410)
 			//¦×®Û¨÷3
-			Call Lib.Util.click_instant(1030, 440)
+			Call instant_click(1030, 440)
 			//¯NÄl1
-			Call Lib.Util.click_instant(727, 456)
+			Call instant_click(727, 456)
 			//¯NÄl2
-			Call Lib.Util.click_instant(744, 515)
+			Call instant_click(744, 515)
 			//¯NÄl3
-			Call Lib.Util.click_instant(835, 455)
+			Call instant_click(835, 455)
 			//¯NÄl4
-			Call Lib.Util.click_instant(858, 515)
+			Call instant_click(858, 515)
 			//ÄÑ½k1
-			Call Lib.Util.click_instant(824, 629)
+			Call instant_click(824, 629)
 			//ÄÑ½k2
-			Call Lib.Util.click_instant(824, 629)
+			Call instant_click(824, 629)
 			//ÄÑ½k3
-			Call Lib.Util.click_instant(824, 629)
+			Call instant_click(824, 629)
 			//ÄÑ½k4
-			Call Lib.Util.click_instant(824, 629)
+			Call instant_click(824, 629)
 		Case 97
 			//¯ó²ùÂæ
-			Call Lib.Util.click_instant(311, 630)
+			Call instant_click(311, 630)
 		Case 98
 			//¯ó²ùÂæ
-			Call Lib.Util.click_instant(311, 630)
-			Call Lib.Util.click_instant(311, 630)
+			Call instant_click(311, 630)
+			Call instant_click(311, 630)
 			//°íªG
-			Call Lib.Util.click_instant(422, 624)
+			Call instant_click(422, 624)
 		Case 100
 			//ÂÅ²ùÂæ
-			Call Lib.Util.click_instant(532, 624)
+			Call instant_click(532, 624)
 		Case 101
 			//ÂÅ²ùÂæ
-			Call Lib.Util.click_instant(532, 624)
-			Call Lib.Util.click_instant(532, 624)
+			Call instant_click(532, 624)
+			Call instant_click(532, 624)
 			//ÂÅ²ù
-			Call Lib.Util.click_instant(644, 625)
+			Call instant_click(644, 625)
 	End Select
 Loop
+
+//¥ªÁäÂIÀ»(µLµ¥«Ý®É¶¡)
+Sub instant_click(intX, intY)
+	MoveTo intX + ancX, intY + ancY
+	LeftClick 1
+End Sub
