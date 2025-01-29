@@ -9,7 +9,7 @@ StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
 MacroID=c0ce5948-b971-44d0-aaae-74b9571f803d
-Description=自動咖啡
+Description=自動咖啡廳
 Enable=0
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-風之國度 自動咖啡程序
+風之國度 自動咖啡廳程序
 
 版本: 1.0
 作者: Rabitto
@@ -76,6 +76,15 @@ Do While 1
 			Call instant_click(824, 629)
 			//麵糊4
 			Call instant_click(824, 629)
+		Case 82
+			//退出
+			Call Lib.Util.click(1225, 53)
+			//確定
+			Call Lib.Util.click(749, 500)
+			//開始經營
+			Call Lib.Util.click(964, 638)
+			//確定
+			Call Lib.Util.click(749, 500)
 		Case 97
 			//草莓醬
 			Call instant_click(311, 630)

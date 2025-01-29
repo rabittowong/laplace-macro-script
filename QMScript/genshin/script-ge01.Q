@@ -8,8 +8,8 @@ StopHotkey=123
 StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
-MacroID=b3d54b0e-5a8b-41a0-baef-40f5ae4eddcb
-Description=自動鎖定
+MacroID=c6e0fb4a-34f7-4a6f-a516-3d9b534d6751
+Description=自動鎖定聖遺物
 Enable=0
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-原神 自動鎖定程序
+原神 自動鎖定聖遺物程序
 
 版本: 1.0
 作者: Rabitto
@@ -37,7 +37,7 @@ For 1
 	//保存滑鼠坐標
 	GetCursorPos intX, intY
 	//鎖定
-	Call Lib.Util.click(1480, 179)
+	Call Lib.Util.click(1540, 179)
 	//回復滑鼠坐標
 	MoveTo intX, intY
 Next

@@ -9,7 +9,7 @@ StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
 MacroID=46fa4e1c-f150-48bf-ad5f-68b03225c618
-Description=自動對決
+Description=自動胖胖對決
 Enable=0
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-風之國度 自動對決程序
+風之國度 自動胖胖對決程序
 
 版本: 1.0
 作者: Rabitto

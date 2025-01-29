@@ -9,7 +9,7 @@ StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
 MacroID=83daa63a-f5b0-4062-915f-30f4ebd85497
-Description=自動蛋糕
+Description=自動糖果屋
 Enable=0
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-風之國度 自動蛋糕程序
+風之國度 自動糖果屋程序
 
 版本: 1.0
 作者: Rabitto
@@ -43,4 +43,14 @@ Do While 1
 			LeftClick 1
 		Next
 	Next
+	
+	//重新開始
+	If Lib.Util.color_match(796, 581, "E7AC83") Then 
+		Call Lib.Util.click(796, 581)
+		
+		//分數達標
+		If Lib.Util.color_match(409, 322, "68C7FE") Then 
+			Exit Do
+		End If
+	End If
 Loop

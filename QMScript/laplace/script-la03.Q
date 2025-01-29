@@ -9,7 +9,7 @@ StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
 MacroID=8ea6b405-f511-4d85-8051-ce75e2a44e1e
-Description=自動釣魚
+Description=自動家園採集
 Enable=1
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-風之國度 自動釣魚程序
+風之國度 自動家園採集程序
 
 版本: 1.0
 作者: Rabitto

@@ -9,7 +9,7 @@ StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
 MacroID=50aa046e-9dc8-4c55-80ed-b838a34d0806
-Description=自動放生
+Description=自動放生守護
 Enable=0
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-風之國度 自動放生程序
+風之國度 自動放生守護程序
 
 版本: 1.0
 作者: Rabitto
@@ -87,10 +87,10 @@ Sub pet_catch
 		//簽訂契約
 		Call Lib.Util.wait_click(881, 648, "059AF4")
 		//選擇10次
-		Call Lib.Util.wait_until(821, 650, "129EF5")
+		Call Lib.Util.wait_until(821, 650, "139EF5")
 		Call Lib.Util.click_if(762, 535, "8CB5D3")
 		//委託捕捉
-		Call Lib.Util.wait_click(821, 650, "129EF5")
+		Call Lib.Util.wait_click(821, 650, "139EF5")
 	Loop
 End Sub
 

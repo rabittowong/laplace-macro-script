@@ -46,11 +46,11 @@ For 1
 //	Call raid_dungeon("802", 3, "")
 //	Call raid_dungeon("702", 3, "")
 //	Call raid_dungeon("602", 3, "")
-	Call raid_dungeon("502", 3, "")
-	Call raid_dungeon("402", 3, "")
-	Call raid_dungeon("302", 3, "")
-	Call raid_dungeon("202", 3, "")
-	Call raid_dungeon("102", 3, "")
+//	Call raid_dungeon("502", 3, "")
+//	Call raid_dungeon("402", 3, "")
+//	Call raid_dungeon("302", 3, "")
+//	Call raid_dungeon("202", 3, "")
+//	Call raid_dungeon("102", 3, "")
 	
 	Call character_move_to("card")
 	Call raid_card("104", 3, "")
@@ -170,8 +170,13 @@ Sub raid_dungeon(strId, intT, strAid)
 		Call Lib.Util.click_if(665, 599, "B0E0F2")
 		//加載
 		Call wait_until(305, 661, "01BE71")
-		//加載完畢
-		Call wait_until_or(665, 599, "B0E0F2", "FFFFFF")
+		If t = 3 Or strId = "102" Or strId = "202" Or strId = "302" Or strId = "402" Or strId = "502" Then 
+			//加載完畢
+			Call wait_until_or(665, 599, "B0E0F2", "FFFFFF")
+		Else 
+			//加載完畢
+			Call wait_until_or(665, 599, "3B3A45", "3E3B46")
+		End If 
 	Next
 End Sub
 
@@ -302,7 +307,7 @@ Sub raid_escort(strId, intT, strAid)
 		//完成
 		Call wait_until(437, 310, "167AF2")
 		//完成完畢
-		Call wait_until(665, 599, "B0E0F2")
+		Call wait_until_or(665, 599, "B0E0F2", "FFFFFF")
 		If strAid = "aid" Then
 			//開啟地圖
 			Call open_map()
@@ -345,11 +350,15 @@ Sub click_until(intX, intY, strC)
 	Do Until Lib.Util.color_match(intX, intY, strC)
 		Call Lib.Util.click(intX, intY)
 		intL = intL + 1
-		If intL > 100 Then 
-			Call Lib.LineBot.send_message_help()
-			EndScript
+		//5分鐘無動作發送暫停訊息
+		If intL = 1000 Then 
+			Call Lib.LineBot.send_message_pause()
 		End If
 	Loop
+	//發送回復訊息
+	If intL > 1000 Then 
+		Call Lib.LineBot.send_message_resume()
+	End If
 End Sub
 
 //等待至顏色相同
@@ -358,11 +367,15 @@ Sub wait_until(intX, intY, strC)
 	Do Until Lib.Util.color_match(intX, intY, strC)
 		Delay 1000 * 0.3
 		intL = intL + 1
-		If intL > 100 Then 
-			Call Lib.LineBot.send_message_help()
-			EndScript
+		//5分鐘無動作發送暫停訊息
+		If intL = 1000 Then 
+			Call Lib.LineBot.send_message_pause()
 		End If
 	Loop
+	//發送回復訊息
+	If intL > 1000 Then 
+		Call Lib.LineBot.send_message_resume()
+	End If
 End Sub
 
 //等待至顏色相同(2種顏色)
@@ -371,11 +384,15 @@ Sub wait_until_or(intX, intY, strC1, strC2)
 	Do Until Lib.Util.color_match(intX, intY, strC1) Or Lib.Util.color_match(intX, intY, strC2)
 		Delay 1000 * 0.3
 		intL = intL + 1
-		If intL > 100 Then 
-			Call Lib.LineBot.send_message_help()
-			EndScript
+		//5分鐘無動作發送暫停訊息
+		If intL = 1000 Then 
+			Call Lib.LineBot.send_message_pause()
 		End If
 	Loop
+	//發送回復訊息
+	If intL > 1000 Then 
+		Call Lib.LineBot.send_message_resume()
+	End If
 End Sub
 
 //等待至顏色相同時左鍵點擊

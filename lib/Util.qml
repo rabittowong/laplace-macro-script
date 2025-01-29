@@ -7,23 +7,28 @@ MacroID=325a9747-2f81-4e5c-b983-a03c08e17a73
 //請在下面寫上您的副程式或函數
 //寫完保存後，在任一命令庫上點擊右鍵並選擇“刷新”即可
 
+//全域坐標
 Dim ancX, ancY, ancC
 
 //啟動腳本
 Sub program_init(strId)
 	Select Case (strId)
 		Case "laplace"
-			ancX = -1597
+			ancX = 323
 			ancY = 168
-			ancC = "DB864D"
+			ancC = "F0E0FF"
 		Case "genshin"
 			ancX = 163
 			ancY = 80
 			ancC = "D4DFE7"
+		Case "treeofsavior"
+			ancX = 329
+			ancY = 167
+			ancC = "F7E5BA"
 	End Select
 	
 //	找色功能不支援負坐標
-//	FindColor 0, 0, 1920, 1080, ancC, ancX, ancY
+	FindColor 0, 0, 1920, 1080, ancC, ancX, ancY
 	If Not(ancX = -1) And Not(ancY = -1) Then
 //		MessageBox "腳本啟動成功: " & ancX & ", " & ancY
 	Else
@@ -53,24 +58,9 @@ Sub click(intX, intY)
 	Delay 1000 * 0.3
 End Sub
 
-//左鍵速點
-Sub click_instant(intX, intY)
-	MoveTo intX + ancX, intY + ancY
-	LeftClick 1
-End Sub
-
 //移動鼠標
-Sub move_to(intX1, intY1)
-	MoveTo intX1 + ancX, intY1 + ancY
-	Delay 1000 * 0.3
-End Sub
-
-//左鍵按住移動
-Sub move(intX1, intY1, intX2, intY2)
-	MoveTo intX1 + ancX, intY1 + ancY
-	LeftDown 1
-	MoveTo intX2 + ancX, intY2 + ancY
-	LeftUp 1
+Sub move_to(intX, intY)
+	MoveTo intX + ancX, intY + ancY
 	Delay 1000 * 0.3
 End Sub
 
@@ -88,17 +78,6 @@ Sub click_until(intX, intY, strC)
 	Loop
 End Sub
 
-//等待至顏色相同時左鍵點擊
-Sub wait_click(intX, intY, strC)
-	Call wait_until(intX, intY, strC)
-	Call click(intX, intY)
-End Sub
-
-Sub wait_click_or(intX, intY, strC, strD)
-	Call wait_until_or(intX, intY, strC, strD)
-	Call click(intX, intY)
-End Sub
-
 //等待至顏色相同
 Sub wait_until(intX, intY, strC)
 	Do Until color_match(intX, intY, strC)
@@ -106,23 +85,32 @@ Sub wait_until(intX, intY, strC)
 	Loop
 End Sub
 
-Sub wait_until_or(intX, intY, strC, strD)
-	Do Until color_match(intX, intY, strC) Or color_match(intX, intY, strD)
+//等待至顏色相同(2種顏色)
+Sub wait_until_or(intX, intY, strC1, strC2)
+	Do Until color_match(intX, intY, strC1) Or color_match(intX, intY, strC2)
 		Delay 1000 * 0.3
 	Loop
 End Sub
 
-//等待至顏色靜止
-Sub wait_static(intX, intY)
-	Dim preC, curC
-	preC = color_at(intX, intY)
-	Do While 1
+//等待至顏色相同時左鍵點擊
+Sub wait_click(intX, intY, strC)
+	Call wait_until(intX, intY, strC)
+	Call click(intX, intY)
+End Sub
+
+//等待至顏色相同時左鍵點擊(2種顏色)
+Sub wait_click_or(intX, intY, strC1, strC2)
+	Call wait_until_or(intX, intY, strC1, strC2)
+	Call click(intX, intY)
+End Sub
+
+//等待至坐標顏色靜止
+Sub wait_until_color_unchange(intX, intY)
+	Dim strC1, strC2
+	strC1 = color_at(intX, intY)
+	Do While Not(strC1 = strC2)
 		Delay 1000 * 0.6
-		curC = color_at(intX, intY)
-		If preC = curC Then 
-			Exit Do
-		Else 
-			preC = curC
-		End If
+		strC2 = strC1
+		strC1 = color_at(intX, intY)
 	Loop
 End Sub

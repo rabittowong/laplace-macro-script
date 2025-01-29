@@ -9,8 +9,8 @@ StopHotkeyMod=0
 RunOnce=1
 EnableWindow=
 MacroID=56d64bfb-8035-45be-8a85-abef8d8f8c42
-Description=自動強化
-Enable=1
+Description=自動強化聖遺物
+Enable=0
 AutoRun=0
 [Repeat]
 Type=0
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-原神 自動強化程序
+原神 自動強化聖遺物程序
 
 版本: 1.0
 作者: Rabitto

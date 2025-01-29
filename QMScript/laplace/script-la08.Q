@@ -10,7 +10,7 @@ RunOnce=1
 EnableWindow=
 MacroID=f97721d9-a899-4563-8b6e-7cf95aeda75e
 Description=¦Û°ÊÂ½µP
-Enable=0
+Enable=1
 AutoRun=0
 [Repeat]
 Type=0
@@ -33,13 +33,90 @@ SetupOCXFile=
 */
 
 Call Lib.Util.program_init("laplace")
+
 Rem start_pos
 For 1
+	Call play_easy
+	Call play_normal
+	Call play_hard
+
 //	Call play_perfect_easy
-	Call play_tolerance_one_easy
+//	Call play_tolerance_one_easy
 //	Call play_perfect_normal
 //	Call play_tolerance_one_normal
 Next
+
+Sub play_easy
+	//¬D¾Ô
+	Call Lib.Util.wait_click(353, 613, "0799F6")
+	Delay 3000
+	For i = 0 To 1
+		For j = 0 To 3
+			For k = 0 To 3
+				If Lib.Util.color_match(371 + j * 153, 162 + i * 308, "393CAA") And Lib.Util.color_match(371 + k * 153, 316 + i * 308, "393CAA") Then 
+					//Â½µP1
+					Call Lib.Util.click(371 + j * 153, 162 + i * 308)
+					Delay 300
+					//Â½µP2
+					Call Lib.Util.click(371 + k * 153, 316 + i * 308)
+					Delay 1200
+				End If
+			Next
+		Next
+	Next
+	//Â÷¶}
+	Call Lib.Util.wait_click(521, 645, "B5919C")
+	//»â¨ú
+	Call Lib.Util.wait_click(353, 613, "E49F70")
+End Sub
+
+Sub play_normal
+	//¬D¾Ô
+	Call Lib.Util.wait_click(672, 613, "0799F6")
+	Delay 3000
+	For i = 0 To 1
+		For j = 0 To 4
+			For k = 0 To 4
+				If Lib.Util.color_match(294 + j * 153, 162 + i * 308, "393CAA") And Lib.Util.color_match(294 + k * 153, 316 + i * 308, "393CAA") Then 
+					//Â½µP1
+					Call Lib.Util.click(294 + j * 153, 162 + i * 308)
+					Delay 300
+					//Â½µP2
+					Call Lib.Util.click(294 + k * 153, 316 + i * 308)
+					Delay 1200
+				End If
+			Next
+		Next
+	Next
+	//Â÷¶}
+	Call Lib.Util.wait_click(521, 645, "B5919C")
+	//»â¨ú
+	Call Lib.Util.wait_click(672, 613, "E49F70")
+End Sub
+
+Sub play_hard
+	//¬D¾Ô
+	Call Lib.Util.wait_click(985, 613, "0799F6")
+	Delay 3000
+	For i = 0 To 1
+		For j = 0 To 5
+			For k = 0 To 5
+				If Lib.Util.color_match(218 + j * 153, 162 + i * 308, "393CAA") And Lib.Util.color_match(218 + k * 153, 316 + i * 308, "393CAA") Then 
+					//Â½µP1
+					Call Lib.Util.click(218 + j * 153, 162 + i * 308)
+					Delay 300
+					//Â½µP2
+					Call Lib.Util.click(218 + k * 153, 316 + i * 308)
+					Delay 1200
+				End If
+			Next
+		Next
+	Next
+	//Â÷¶}
+	Call Lib.Util.wait_click(521, 645, "B5919C")
+	//»â¨ú
+	Call Lib.Util.wait_click(985, 613, "E49F70")
+End Sub
 
 Sub play_perfect_easy
 	Call turn_card_easy("11", 390, 179, "58BB82")

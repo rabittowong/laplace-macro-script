@@ -9,7 +9,7 @@ StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
 MacroID=09a5d4f8-1cdb-428e-bb96-440eec8456f2
-Description=自動升星
+Description=自動升星戰紋
 Enable=0
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-風之國度 自動升星程序
+風之國度 自動升星戰紋程序
 
 版本: 1.0
 作者: Rabitto

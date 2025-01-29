@@ -9,7 +9,7 @@ StopHotkeyMod=2
 RunOnce=1
 EnableWindow=
 MacroID=23d92610-90b1-48fd-92c3-1a2c53f61a04
-Description=自動刷單
+Description=自動家園刷單
 Enable=0
 AutoRun=0
 [Repeat]
@@ -25,7 +25,7 @@ SetupOCXFile=
 [Script]
 /*
 ================================
-風之國度 自動刷單程序
+風之國度 自動家園刷單程序
 
 版本: 1.0
 作者: Rabitto
